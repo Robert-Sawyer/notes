@@ -7,9 +7,13 @@ class NoteActions {
         const title = req.body.title
         const content = req.body.content
 
-        const note = new Note({title, content})
-
-        await note.save()
+        let note
+        try {
+            note = new Note({title, content})
+            await note.save()
+        } catch (err) {
+            return res.status(422).json({ message: err.message })
+        }
 
         res.status(201).json(note)
     }
