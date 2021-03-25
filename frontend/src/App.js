@@ -1,10 +1,12 @@
 import React from 'react'
+import './App.css'
+import Notes from "./components/Notes/Notes";
 
 const App = props => {
 
     return (
-        <div>
-            React frontend
+        <div className='App'>
+            <Notes/>
         </div>
     )
 }
